@@ -12,30 +12,54 @@
     </div>
 
 
-   <div class="row">
-     <div class="card">
-       <h2>Burgers Ready to Eat</h2>
-       <div class="card-body">
-         <div class="card-text">
-           {{#each burgers}}
-            {{#unless devoured}}
-              {{> burgers/burger-block devoured = true}}
-            {{/unless}}
-           {{/each}}
-         </div>
-       </div>
-     </div>
+    <div class='notDevoured section'>
+        <h2>Not devoured</h2>
+        <table class ="table">
+            <thead>
+            <tr>
+                <th class="titleCenter">Not devoured</th>
+                <th class="titleCenter">Devour it</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {{#each burgers}}
+                    {{#unless this.devoured}}
+                            <td>
+                                {{this.burger_name}}
+                            </td>
+                            <td>
+                                <form action="/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="devoured" value="true">
+                                    <button class="btnColor btn btn-success" type="submit">Devour it!</button>
+                                </form>
+                            </td>
+                    {{/unless}}
+                        </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 
-     <div class="card">
-       <h2>Burgers Already Eaten</h2>
-       <div class="card-body">
-         <div class="card-text">
-           {{#each burgers}}
-            {{#if devoured}}
-              {{> burgers/burger-block devoured = false}}
-            {{/if}}
-           {{/each}}
-         </div>
-       </div>
-     </div>
+
+
+    <div class="devoured section">
+        <thread>
+            <h2>Devoured</h2>
+        </thread>
+        <table class ="table">
+                {{#each burgers}}
+                    {{#if this.devoured}}
+                        <tr>
+                            {{this.burger_name}}
+                            <form action="/{{this.id}}?_method=DELETE" method="POST">
+                                <input type="hidden" name="id" value="{{this.id}}">
+                                <button class="btnColor btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </tr>
+                        <br><br>
+                    {{/if}}
+                {{/each}}
+            </table>
+    </div>
    </div>
