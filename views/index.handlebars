@@ -2,13 +2,14 @@
 
 <ul>
   {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        <p>{{this.burger_name}}</p>
-      </li>
-      {{/unless}}
+  	<li>
+  		<p>{{this.burger_name}}</p>
+     
+      <button data-id="{{this.id}}" class="delquote">Delete</button>
+  	</li>
   {{/each}}
 </ul>
+
 
 
 <div class="row">
