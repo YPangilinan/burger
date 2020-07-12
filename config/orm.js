@@ -2,6 +2,16 @@ var connection = require("../config/connection.js");
 
 //HELPER FUNCTIONS TAKEN FROM CATS APP ACTIVITY
 
+// Helper function for SQL syntax.
+function printQuestionMarks(num) {
+  var arr = [];
+
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+  return arr.toString();
+}
+
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
   var arr = [];
@@ -34,17 +44,27 @@ var orm = {
           }
         });
     },
-    insertOne: function(tableName, column, value, cb){
-      var queryString = "INSERT INTO ?? (??) VALUES (?)";
-      connection.query(queryString, [tableName, column, value], function(err,result){
-        if (err) throw err;
-        else{
-          cb(result);
-        };
+    insertOne: function(table, cols, vals, cb) {
+      var queryString = "INSERT INTO " + table;
+      // INSER INTO table_name (burger_name) VALUES (?, ?)
+      queryString += " (";
+      queryString += cols.toString();
+      queryString += ") ";
+      queryString += "VALUES (";
+      queryString += printQuestionMarks(vals.length);
+      queryString += ") ";
+  
+      console.log(queryString);
+  
+      connection.query(queryString, vals, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
       });
     },
-    updateOne: function(table, objColVals, condition, cb) {
-      var queryString = "UPDATE " + table;
+    updateOne: function(tableName, objColVals, condition, cb) {
+      var queryString = "UPDATE " + tableName;
   
       queryString += " SET ";
       queryString += objToSql(objColVals);
@@ -53,10 +73,16 @@ var orm = {
   
       console.log(queryString);
       connection.query(queryString, function(err, result) {
-        if (err) {
-          throw err;
+        if (err) throw err;
+        else{
+          cb(result);
         }
-  
+      });
+    },
+    deleteOne: function(table,condition, cb) {
+      var queryString = "DELETE FROM " + table + " WHERE "+ condition;
+      connection.query(queryString, function(err, result){
+        if(err) throw err;
         cb(result);
       });
     }
