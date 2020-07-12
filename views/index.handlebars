@@ -1,17 +1,5 @@
 <div class="container">
 
-<ul>
-  {{#each burgers}}
-  	<li>
-  		<p>{{this.burger_name}}</p>
-     
-      <button data-id="{{this.id}}" class="delquote">Delete</button>
-  	</li>
-  {{/each}}
-</ul>
-
-
-
 <div class="row">
     <div class="section">
         <form class="create-update-form" action="/" method="POST">
@@ -24,5 +12,30 @@
     </div>
 
 
-   
-</div>
+   <div class="row">
+     <div class="card">
+       <h2>Burgers Ready to Eat</h2>
+       <div class="card-body">
+         <div class="card-text">
+           {{#each burgers}}
+            {{#unless devoured}}
+              {{> burgers/burger-block devoured = true}}
+            {{/unless}}
+           {{/each}}
+         </div>
+       </div>
+     </div>
+
+     <div class="card">
+       <h2>Burgers Already Eaten</h2>
+       <div class="card-body">
+         <div class="card-text">
+           {{#each burgers}}
+            {{#if devoured}}
+              {{> burgers/burger-block devoured = false}}
+            {{/if}}
+           {{/each}}
+         </div>
+       </div>
+     </div>
+   </div>
