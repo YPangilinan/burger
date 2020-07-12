@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1>Eat Da Burger, Eat it Now!</h1>
+<h1>Welcome to Jollibee!</h1>
 <br>
 
 <div id='avail'>
@@ -11,7 +11,7 @@
             {{this.id}}. {{this.burger_name}}
 
             <form action="/{{this.id}}?_method=PUT" method="POST">
-                <input type="hidden" name="devoured" value="false">
+                <input type="hidden" name="devoured" value="true">
                 <button class="btn btn-warning" type="submit">Eat Me!</button>
             </form>
 
@@ -20,7 +20,7 @@
     </ul>
 </div>
 <div id='devoured'>
-    <h2>Burgers That Have <br>Been Devoured: </h2>
+    <h2>Burgers That Have Been Devoured: </h2>
 
     <ul>
         {{#each burgers}} {{#if this.devoured}}
