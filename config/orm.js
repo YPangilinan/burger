@@ -35,14 +35,14 @@ function objToSql(ob) {
 
 //ORM FOR SQL STATEMENT FUNCTIONS
 var orm = {
-    selectAll: function(tableName, cb) {
-        var queryString = "SELECT * FROM ??";
-        connection.query(queryString, [tableName], function(err, result) {
-          if (err) throw err;
-          else {
-            cb(result);
-          }
-        });
+    selectAll: function(tableInput, cb) {
+      var queryString = "SELECT * FROM " + tableInput + ";";
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
     },
     insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
