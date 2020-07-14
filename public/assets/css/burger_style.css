@@ -1,3 +1,32 @@
 body{
     background-color:white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#header{
+    background-color:#cd1338;
+    font-family: 'Fredoka One', cursive;
+    background-image: url("/assets/img/JOLLIBEE.png");
+    background-repeat: no-repeat;
+    height:400px;
+}
+
+h2{
+    color: #D80038;
+    font-family: 'Fredoka One', cursive;
+}
+
+#logo{
+    top: -25%;
+}
+
+#yum{
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 40px;
+    color: #F5BA3E;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
