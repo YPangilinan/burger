@@ -27,7 +27,7 @@ h4{
 
 #yum{
     font-family: 'Bowlby One SC', cursive;
-    font-size: 45px;
+    font-size: 47px;
     color: #F5BA3E;
     text-shadow:
 		-1px -1px 0 #000,
@@ -46,4 +46,17 @@ button{
 
 .card{
     border-radius: 20px;
+}
+
+#headline{
+    font-family: 'Fredoka One', cursive;
+    background-color:#D80038;
+    padding:40px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 767px){
+    #header{
+        background-image: none;
+    }
 }
