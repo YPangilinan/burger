@@ -29,7 +29,7 @@ router.put("/:id", function(req,res){
     devoured: req.body.devoured
             }, condition, function() {
     res.redirect("/");
-});
+  });
 });
 
 router.delete("/:id", function(req,res){
