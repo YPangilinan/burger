@@ -1,5 +1,5 @@
 var express = require("express");
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 
 var PORT = process.env.PORT || 8080;
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // override with POST having ?_method=DELETE
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
