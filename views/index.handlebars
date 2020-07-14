@@ -3,25 +3,23 @@
     <div class="col-lg-4"></div>
    <div class="col-lg-8 p-lg-5 mx-auto my-5 ml-5">
         <h1 class = "ml-5 text-light" id = "welcome">Welcome to Happibee</h1>
-        <h3 class="lead font-weight-normal text-light"><i>Home of the World Famous</i></h3>
-        <p id = "yum">Yum Yum Burger</p>
+        <h3 class="lead font-weight-normal text-light ml-4"><i>Home of the World Famous</i></h3>
+        <p  class = "ml-5" id = "yum">Yum Yum Burger</p>
         <a class="btn btn-outline-light" href="#">Coming soon</a>
       </div>
-      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
   </div>
-    </div>
-
+</div>
 <div class="container mt-4">
   <div class="row">
     <h2>Our Current Menu</h2>
   </div>
-  <div class="row m-3">
+  <div class="row m-3 mb-5">
     <div class="col-lg-4">
 <div class="card" style="width: 20rem;">
   <img class="card-img-top" src="https://jollibeeusa.com/wp-content/uploads/2018/11/chicksand2.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Chicken Yum Yum</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title font-weight-bold">Chicken Yum Yum</h5>
+    <p class="card-text">Our juicy, fresh (never-frozen) chicken patty, topped with our signature sauce on a fresh-made bun.</p>
   </div>
 </div>
     </div>
@@ -29,8 +27,8 @@
       <div class="card" style="width: 20rem;">
   <img class="card-img-top" src="https://www.jollibeeusa.com/wp-content/uploads/2019/03/cheeseburger-1.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Classic Yum Yum with Cheese</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title font-weight-bold">Classic Yum Yum with Cheese</h5>
+    <p class="card-text">Our classic, fresh (never-frozen) beef patty, topped with our signature sauce on a fresh-made bun. Plus cheese!</p>
   </div>
 </div>
     </div>
@@ -38,66 +36,100 @@
       <div class="card" style="width: 20rem;">
       <img class="card-img-top" src="https://www.jollibeeusa.com/wp-content/uploads/2019/03/bigyum.png" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Classic Yum Yum</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title font-weight-bold">Classic Yum Yum</h5>
+          <p class="card-text">Our classic, fresh (never-frozen) beef patty, topped with our signature sauce on a fresh-made bun. Can't go wrong with a classic!</p>
         </div>
       </div>
     </div>
   </div>
+
 <div class="row">
   <div class="col-lg-6">
     <div id='avail'>
-      <h2>Burgers Available:</h2>
+      <h2>Burgers Available:</h2><p>(click on the burger to order it)</p>
+<div class="card text-white" style="background-color: #cd1338">
         {{#each burgers}} 
         {{#unless this.devoured}}
-        <div class="card">
-          <div class="card-header">
-            <h4>{{this.burger_name}}</h4>
-          </div>
-          <div class="card-body">
+          <div class="card-body m-1 p-1">
             <form action="/{{this.id}}?_method=PUT" method="POST">
                 <input type="hidden" name="devoured" value="true">
-                <button class="btn btn-warning" type="submit">Eat Me!</button>
+                <button class="btn text-light" type="submit"><h5>{{this.burger_name}}</h5></button>
             </form>
           </div>
-        </div>
         {{/unless}} 
         {{/each}}
+        </div>
     </div>
 </div>
 <div class="col-lg-6">
   <div id='devoured'>
-    <h2>Burgers Tried: </h2>
+    <h2>Burgers Tried: </h2><p>(click on the burger to remove the evidence)</p>
+    <div class="card text-white" style="background-color: #cd1338">
        {{#each burgers}} 
         {{#if this.devoured}}
-        <div class="card">
-          <div class="card-header">
-            <h4>{{this.burger_name}}</h4></div>
-          <div class="card-body">
+          <div class="card-body m-1 p-1">
             <form action="/{{this.id}}?_method=DELETE" method="POST">
                 <input type="hidden" name="id" value="{{this.id}}">
-                <button class="btn btn-warning" type="submit">Remove the evidence!</button>
+                <button class="btn text-light" type="submit"><h5>{{this.burger_name}}</h5></button>
             </form>
           </div>
-        </div>
         {{/if}} 
         {{/each}}
+        </div>
   </div>
 </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mt-5 mb-5">
   <div class="col-lg-12 d-flex justify-content-center">
     <div id='add'>
-      <h4>Don't see the one you want? Add it!</h4>
+      <h4 class = "mb-3">Don't see the one you want? Add it!</h4>
         <form class="create-update-form" action="/" method="POST">
             <div class="form-group">
             <label for="dab">Burger Name:</label>
             <input type="text" id="dab" name="burger_name"></div>
-            <button class="btn btn-primary" type="submit">Add Burger</button>
+            <button class="btn border-dark" type="submit">Add Burger</button>
         </form>
   </div>
 </div>
 </div>
 
 </div>
+
+ <!-- footer -->
+     <footer class = "mt-3" style="background-color: #cd1338">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-4 text-center text-md-left ">
+                    
+                    <div class="py-0">
+                        <h2 class="my-4 text-white"><span class="mx-2 text-light "><img src = "https://m.davaobloggers.net/badges/event-hbqag8.png" style = "height:100px;"> Happibee</span></h2>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-white text-center text-md-left ">
+                    <div class="py-2 my-4">
+                        <p class="footer-links font-weight-bold">
+                            <a class="text-white" href="#">Home</a>
+                            |
+                            <a class="text-white" href="https://www.linkedin.com/in/yssabel-pangilinan-4a4519a9/">LinkedIn</a>
+                            |
+                            <a class="text-white" href="https://github.com/YPangilinan/burger">GitHub Repo</a>
+                            |
+                            <a class="text-white" href="https://ypangilinan.github.io/">Portfolio</a>
+                        </p>
+                        <div>
+                          <h4 class = "text-light">Questions?</h4>
+                            <p class = "text-light"><a  class = "text-light" href="mailto:yssabelpangilinan@yahoo.com">yssabelpangilinan@yahoo.com</a></p>
+                        </div>  
+                    </div>  
+                </div>
+                
+                <div class="col-md-4 text-white my-4 text-center text-md-left ">
+                    <span class=" font-weight-bold ">About the Company</span>
+					<p class="text-warning my-2" >We are the newest burger joint in town. Inspired by our Filipino roots, our mission is to spread the <i>joy of eating.</i></p>
+        
+                </div>
+            </div>  
+        </div>
+     </footer>

@@ -16,17 +16,34 @@ h2{
     font-family: 'Fredoka One', cursive;
 }
 
+h4{
+    color: #D80038;
+    font-family: 'Fredoka One', cursive;
+}
+
 #logo{
     top: -25%;
 }
 
 #yum{
     font-family: 'Bowlby One SC', cursive;
-    font-size: 40px;
+    font-size: 45px;
     color: #F5BA3E;
     text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+}
+
+button{
+    background: rgba(0,0,0,0.5);
+}
+
+.card-body{
+    border-bottom: 2px dotted #ffffff;
+}
+
+.card{
+    border-radius: 20px;
 }
