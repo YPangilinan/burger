@@ -18,7 +18,7 @@ The technologies used to create this app are:
 - [Handlebars](https://handlebarsjs.com/installation/)
 - HTML
 - Bootstrap
-- [MySQL Workbench]((https://www.npmjs.com/package/mysql)
+- [MySQL Workbench](https://www.npmjs.com/package/mysql)
 - [MySQL](https://dev.mysql.com/downloads/workbench/)
 
 
