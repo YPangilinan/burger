@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 
+//change connection to include JAWSDB
 var connection;
 if (process.env.JAWSDB_URL) {
     // Database is JawsDB on Heroku
@@ -10,7 +11,7 @@ if (process.env.JAWSDB_URL) {
         port: 3306,
         host: 'localhost',
         user: 'root',
-        password: 'Cabuntucan1@',
+        password: '',
         database: 'burgers_db'
     })
 };
