@@ -55,7 +55,7 @@
         {{#each burgers}} 
         {{#unless this.devoured}}
           <div class="card-body m-1 p-1">
-            <form action="/{{this.id}}?_method=PUT" method="POST">
+            <form action="/{{this.id}}?_method=PUT" method="POST"onsubmit="return mySubmitFunction(event)">
                 <input type="hidden" name="devoured" value="true">
                 <button class="btn text-light" type="submit"><h5>{{this.burger_name}}</h5></button>
             </form>
